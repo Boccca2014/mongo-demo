@@ -9,6 +9,7 @@ const URI = `mongodb+srv://younote-admin:${password}@younote-api.cwpws.mongodb.n
 const option = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  useFindAndModify: false,
 };
 
 /*
@@ -83,6 +84,7 @@ async function createUser(username, password) {
 createUser(faker.internet.userName(), faker.internet.password());
 */
 
+/*
 const user = new User({
   username: faker.internet.userName(),
   password: faker.internet.password(),
@@ -94,12 +96,19 @@ user.save((err, user) => {
   if (err) console.log(err);
   console.log(user);
 });
+*/
 
+/*
 User.find()
   .then((users) => console.log(users))
   .catch((err) => console.log(err));
 
 // TODO: change the ID below to one that exists in your DB.
 User.findById("5f9a1d156e848f06c458f5f4")
+  .then((user) => console.log(user))
+  .catch((err) => console.log(err));
+*/
+
+User.findByIdAndDelete("5f9a1d156e848f06c458f5f4")
   .then((user) => console.log(user))
   .catch((err) => console.log(err));
