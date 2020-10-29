@@ -41,6 +41,7 @@ const UserSchema = new Schema({
 
 const User = mongoose.model("User", UserSchema);
 
+/*
 User.create(
   {
     username: faker.internet.userName(),
@@ -51,3 +52,31 @@ User.create(
     console.log(user);
   }
 );
+*/
+
+/*
+User.create({
+  username: faker.internet.userName(),
+  password: faker.internet.password(),
+})
+  .then((user) => {
+    console.log(user);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+*/
+
+async function createUser(username, password) {
+  try {
+    const user = await User.create({
+      username,
+      password,
+    });
+    console.log(user);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+createUser(faker.internet.userName(), faker.internet.password());
