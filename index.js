@@ -1,5 +1,6 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
+const faker = require("faker");
 
 const password = process.env.DB_ADMIN_PASSWORD;
 const dbname = "younote-db";
@@ -30,3 +31,23 @@ mongoose.connection.on("open", () => {
 mongoose.connection.on("error", (err) => {
   console.log(err);
 });
+
+const Schema = mongoose.Schema;
+
+const UserSchema = new Schema({
+  username: { type: String },
+  password: { type: String },
+});
+
+const User = mongoose.model("User", UserSchema);
+
+User.create(
+  {
+    username: faker.internet.userName(),
+    password: faker.internet.password(),
+  },
+  (err, user) => {
+    if (err) console.log(err);
+    console.log(user);
+  }
+);
