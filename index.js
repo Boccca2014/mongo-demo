@@ -109,6 +109,26 @@ User.findById("5f9a1d156e848f06c458f5f4")
   .catch((err) => console.log(err));
 */
 
+/*
 User.findByIdAndDelete("5f9a1d156e848f06c458f5f4")
+  .then((user) => console.log(user))
+  .catch((err) => console.log(err));
+*/
+
+/*
+User.findByIdAndUpdate("5f9a157610bf5e86746c8eb9", {
+  username: "username-updated",
+})
+  .then((user) => console.log(user))
+  .catch((err) => console.log(err));
+*/
+
+User.findByIdAndUpdate(
+  "5f9a157610bf5e86746c8eb9",
+  {
+    username: "username-updated-again",
+  },
+  { new: true }
+)
   .then((user) => console.log(user))
   .catch((err) => console.log(err));
