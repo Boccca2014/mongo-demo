@@ -123,6 +123,7 @@ User.findByIdAndUpdate("5f9a157610bf5e86746c8eb9", {
   .catch((err) => console.log(err));
 */
 
+/*
 User.findByIdAndUpdate(
   "5f9a157610bf5e86746c8eb9",
   {
@@ -132,3 +133,4 @@ User.findByIdAndUpdate(
 )
   .then((user) => console.log(user))
   .catch((err) => console.log(err));
+*/
